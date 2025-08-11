@@ -1,11 +1,58 @@
-import ProjectList from "@/components/sections/project-list";
+"use client";
 
+import ProjectList from "@/components/sections/project-list";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-
+import { Skeleton } from "@/components/ui/skeleton";
 import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="container mx-auto md:px-44 px-8">
+        <section className="flex flex-col-reverse gap-4 py-[2rem] md:flex-row md:gap-8 md:py-[8rem] justify-between items-center">
+          <div className="gap-6 flex flex-col max-w-2xl w-full">
+            <Skeleton className="h-12 w-2/3 mb-2" />
+            <Skeleton className="h-8 w-1/2 mb-4" />
+            <Skeleton className="h-5 w-full mb-2" />
+            <Skeleton className="h-5 w-5/6 mb-2" />
+            <Skeleton className="h-10 w-40 mb-6" />
+            <div className="flex gap-4 mb-8">
+              <Skeleton className="h-8 w-8 rounded-full" />
+              <Skeleton className="h-8 w-8 rounded-full" />
+              <Skeleton className="h-8 w-8 rounded-full" />
+            </div>
+          </div>
+          <div className="w-full flex justify-center">
+            <Skeleton className="rounded-full w-32 h-32 md:w-72 md:h-72" />
+          </div>
+        </section>
+        <section id="projects">
+          <Skeleton className="h-8 w-1/2 mb-4" />
+          <div className="flex flex-col md:flex-row md:flex-wrap gap-4">
+            {[...Array(3)].map((_, i) => (
+              <Skeleton
+                key={i}
+                className="h-64 w-full max-w-xs sm:max-w-sm rounded-lg"
+              />
+            ))}
+          </div>
+        </section>
+        <footer className="pt-[2rem] md:pt-[8rem] pb-8 text-start">
+          <Skeleton className="h-4 w-1/3" />
+        </footer>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto md:px-44 px-8">
       {/* Profile */}
@@ -21,7 +68,7 @@ export default function Home() {
               Software Engineer
             </h5>
           </div>
-          <p className="text-sm font-medium text-gray-700">
+          <p className="text-sm md:text-lg font-medium text-gray-700">
             I am a Software Engineer specializing in <b> Web Development</b>. My
             passion also extends to <b>Game Development</b>. Feel free to
             explore my projects to see my skills in action.
@@ -72,9 +119,7 @@ export default function Home() {
 
       {/* Projects */}
       <section id="projects">
-        <h1 className="md:text-2xl text-lg">
-          Here are some of my recent projects
-        </h1>
+        <h1 className="md:text-2xl text-lg">My Recent Projects</h1>
         {/* List of Proejcts */}
         <ProjectList />
       </section>
