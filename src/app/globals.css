@@ -4,38 +4,38 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(93.46% 0.0305 255.11);
-  --secondary-background: oklch(100% 0 0);
-  --foreground: oklch(0% 0 0);
-  --main-foreground: oklch(0% 0 0);
-  --main: oklch(67.47% 0.1726 259.49);
-  --border: oklch(0% 0 0);
-  --ring: oklch(0% 0 0);
-  --overlay: oklch(0% 0 0 / 0.8);
+  --background: #f7f7f7; /* Monochrome light background */
+  --secondary-background: #e0e0e0; /* Monochrome light secondary background */
+  --foreground: #222222;
+  --main-foreground: #111111;
+  --main: #fff; /* Monochrome accent - white */
+  --border: #cccccc;
+  --ring: #bbbbbb;
+  --overlay: #222222cc;
   --shadow: 4px 4px 0px 0px var(--border);
-  --chart-1: #5294FF;
-  --chart-2: #FF4D50;
-  --chart-3: #FACC00;
-  --chart-4: #05E17A;
-  --chart-5: #7A83FF;
-  --chart-active-dot: #000;
+  --chart-1: #bbbbbb;
+  --chart-2: #888888;
+  --chart-3: #cccccc;
+  --chart-4: #aaaaaa;
+  --chart-5: #dddddd;
+  --chart-active-dot: #222;
 }
 
 .dark {
-  --background: oklch(29.23% 0.0626 270.49);
-  --secondary-background: oklch(23.93% 0 0);
-  --foreground: oklch(92.49% 0 0);
-  --main-foreground: oklch(0% 0 0);
-  --main: oklch(67.47% 0.1726 259.49);
-  --border: oklch(0% 0 0);
-  --ring: oklch(100% 0 0);
+  --background: #181818; /* Monochrome dark background */
+  --secondary-background: #232323; /* Monochrome dark secondary background */
+  --foreground: #ededed;
+  --main-foreground: #fafafa;
+  --main: #fff; /* Monochrome accent - white */
+  --border: #444444;
+  --ring: #666666;
   --shadow: 4px 4px 0px 0px var(--border);
-  --chart-1: #5294FF;
-  --chart-2: #FF6669;
-  --chart-3: #E0B700;
-  --chart-4: #04C86D;
-  --chart-5: #7A83FF;
-  --chart-active-dot: #fff;
+  --chart-1: #666666;
+  --chart-2: #888888;
+  --chart-3: #444444;
+  --chart-4: #bbbbbb;
+  --chart-5: #222222;
+  --chart-active-dot: #ededed;
 }
 
 @theme inline {
@@ -66,6 +66,7 @@
 @layer base {
   body {
     @apply text-foreground font-base bg-background;
+    font-family: var(--font-inter), sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6{
