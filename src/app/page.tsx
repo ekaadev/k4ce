@@ -73,7 +73,12 @@ export default function Home() {
             passion also extends to <b>Game Development</b>. Feel free to
             explore my projects to see my skills in action.
           </p>
-          <Button className="w-fit">Let&apos;s work together</Button>
+          <a
+            href="https://www.linkedin.com/in/yohanes-eka-putra-85952128a/"
+            target="_blank"
+          >
+            <Button className="w-fit">Let&apos;s work together</Button>
+          </a>
 
           {/* Social Links */}
           <div className="flex gap-4 mb-8">
