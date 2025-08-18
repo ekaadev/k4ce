@@ -1,109 +1,70 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
-import { FaArrowRight } from "react-icons/fa6";
+import { FaAngleRight } from "react-icons/fa6";
 
 const ProjectList = () => {
   const projects = [
     {
-      title: "Kaen",
-      image: "/kaen-img.png", // Replace with actual image path
-      description: "A rouglike game built with Godot Engine",
-      technologies: ["Godot Engine", "Godot Script", "Aseprite"],
-      link: "https://ek4ce.itch.io/kaen",
-    },
-    {
       title: "Clean Shoe",
-      image: "/clean-shoe-img.png", // Replace with actual image path
-      description: "A service application for shoe cleaning",
-      technologies: ["Svelte Kit", "Typescript", "Supabase", "Tailwind CSS"],
+      image: "/clean-shoe.jpg", // Replace with actual image path
+      year: "Mar 2025 - Aug 2025",
       link: "https://clean-shoe.vercel.app/",
+      role: "Full Stack Developer",
     },
     {
-      title: "MBTI Test",
-      image: "/mbti-img.png", // Replace with actual image path
-      description: "A web application for MBTI personality test",
-      technologies: ["Svelte Kit", "Typescript", "Tailwind CSS"],
-      link: "https://ukdc-kbu-mbti-1.joelmedia.my.id/",
+      title: "Kaen",
+      image: "/github-img.webp", // Replace with actual image path
+      year: "Sep 2024 - Jan 2025",
+      link: "https://ek4ce.itch.io/kaen",
+      role: "Lead Game Developer",
     },
     {
       title: "Giros",
-      image: "/giros-img.png", // Replace with actual image path
-      description: "A application for rate your Github profile",
-      technologies: ["Kotlin", "Android Studio"],
+      image:
+        "https://img.itch.zone/aW1nLzE5Njk4OTk3LnBuZw==/347x500/fZKlNC.png", // Replace with actual image path
+      year: "Sep 2024 - Feb 2025",
       link: "https://developerinformatikaukdc.itch.io/giros",
-    },
-    {
-      title: "Eisenhower Todo API",
-      image: "/github-img.webp", // Replace with actual image path
-      description:
-        "A RESTful API for managing tasks using the Eisenhower Matrix",
-      technologies: ["Go", "Http Router", "PostgreSQL"],
-      link: "https://github.com/ekaadev/eisenhower-todo-api",
-    },
-    {
-      title: "My Pocket API",
-      image: "/github-img.webp", // Replace with actual image path
-      description: "A RESTful API for My Pocket application",
-      technologies: ["Express JS", "Javascript"],
-      link: "https://github.com/ekaadev/my-pocket-backend",
+      role: "Mobile Developer",
     },
   ];
 
   return (
-    <div className="flex flex-col gap-4 md:flex-row md:flex-wrap">
+    <div className="space-y-4">
       {projects.map((project, index) => (
-        <Card
-          key={index}
-          className="my-4 w-full max-w-xs sm:max-w-sm md:max-w-sm md:flex-none"
-        >
-          <CardContent>
-            <div className="aspect-[16/9] w-full mb-4 rounded-lg overflow-hidden relative border">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 320px"
-              />
-            </div>
-          </CardContent>
-          <CardHeader>
-            <CardTitle>{project.title}</CardTitle>
-            <CardDescription className="text-zinc-600">
-              {project.description}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className=" flex-1">
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, techIndex) => (
-                <Badge key={techIndex}>{tech}</Badge>
-              ))}
-            </div>
-          </CardContent>
-          <CardFooter className="flex items-end">
-            <Button asChild>
+        <div className="flex flex-row gap-4 items-center" key={index}>
+          {/* img-project */}
+          <div className="relative w-12 h-12 shrink-0">
+            <Image
+              src={project.image}
+              alt="Education Picture"
+              fill
+              className="rounded-full object-cover border border-gray-400/40"
+              unoptimized
+            />
+          </div>
+          {/* description */}
+          <div className="w-full space-y-0.5">
+            {/* title and period */}
+            <div className="flex flex-row justify-between">
               <a
+                className="flex items-center group cursor-pointer"
                 href={project.link}
                 target="_blank"
-                rel="noopener noreferrer"
-                className="text-medium"
               >
-                View Project
-                <FaArrowRight className="ml-2" />
+                <p className="font-bold text-sm md:text-base">
+                  {project.title}
+                </p>
+                <FaAngleRight className="inline-block ml-1 text-gray-500 opacity-0 transform translate-x-[-5px] transition-all duration-150 group-hover:opacity-100 group-hover:translate-x-0 ease-in-out" />
               </a>
-            </Button>
-          </CardFooter>
-        </Card>
+              <span className="font-normal font-mono text-xs md:text-sm text-gray-500">
+                {project.year}
+              </span>
+            </div>
+            <p className="font-normal text-xs md:text-sm text-gray-500">
+              {project.role}
+            </p>
+          </div>
+        </div>
       ))}
     </div>
   );
