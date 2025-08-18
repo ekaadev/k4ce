@@ -64,6 +64,10 @@
 }
   
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply text-foreground font-base bg-background;
     font-family: var(--font-inter), sans-serif;
