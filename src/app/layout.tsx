@@ -8,7 +8,7 @@ const interSans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "My Portofolio | Yohanes Eka Putra",
+  title: "Yohanes Eka Putra",
   description: "Portofolio",
 };
 
