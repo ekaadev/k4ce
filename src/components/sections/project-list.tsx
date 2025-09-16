@@ -5,6 +5,14 @@ import { FaAngleRight } from "react-icons/fa6";
 const ProjectList = () => {
   const projects = [
     {
+      title: "Hegai: Generative AI",
+      image:
+        "/github-img.webp", // Replace with actual image path
+      year: "Jun 2025 - Sep 2025",
+      link: "https://github.com/commrade-goad/r1-ai",
+      role: "Full Stack Developer",
+    },
+    {
       title: "Clean Shoe",
       image: "/clean-shoe.jpg", // Replace with actual image path
       year: "Mar 2025 - Aug 2025",
@@ -16,8 +24,7 @@ const ProjectList = () => {
       image: "/github-img.webp", // Replace with actual image path
       year: "Sep 2024 - Jan 2025",
       link: "https://ek4ce.itch.io/kaen",
-      role: "Lead Game Developer",
-    },
+      role: "Lead Game Developer", },
     {
       title: "Giros",
       image:
