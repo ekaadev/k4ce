@@ -1,3 +1,5 @@
+import { BlurFade } from "@/components/ui/blur-fade";
+
 type PersonalInfoType = "phone" | "email" | "linkedin" | "github";
 
 type PersonalInfoItem = {
@@ -172,159 +174,201 @@ const technicalSkills: TechnicalSkillItem[] = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-olive-100 font-sans">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-olive-100 font-sans">
       {/* Main Content */}
       <main className="flex min-h-screen w-full max-w-4xl flex-col items-center justify-start py-8 px-8 lg:py-16 lg:px-16 lg:items-start">
         {/* Header */}
-        <div className="flex flex-col lg:items-start lg:text-left w-full mb-4">
-          <h1 className="w-full font-serif text-start sm:text-center font-bold text-3xl lg:text-[2.35rem] leading-10 tracking-wide text-olive-900">
-            Yohanes Eka Putra
-          </h1>
-          <p
-            className="w-full
-            flex flex-col items-start gap-1
-            sm:flex-row sm:flex-wrap sm:text-center sm:items-center sm:justify-center sm:gap-x-4 sm:gap-y-1
-            text-sm sm:text-base
-            font-serif leading-tight tracking-normal text-olive-900
-          "
-          >
-            {personalInfo.map((item) => (
-              <span key={item.type} className="flex items-center gap-1">
-                {item.link ? (
-                  <a
-                    className="underline underline-offset-4 hover:text-blue-800"
-                    href={item.link}
-                    target="_blank"
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <span className="underline underline-offset-4">
-                    {item.value}
-                  </span>
-                )}
-              </span>
-            ))}
-          </p>
-        </div>
-        {/* Education Section */}
-        <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
-          <h2 className="font-serif uppercase text-sm sm:text-base tracking-wide">
-            <span className="text-lg sm:text-xl">E</span>ducation
-          </h2>
-          <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
-          {education.map((item) => (
-            <div
-              key={item.institution}
-              className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center"
+        <BlurFade
+          delay={0.15}
+          duration={0.55}
+          direction="up"
+          inView
+          className="w-full"
+        >
+          <div className="flex flex-col items-start text-left sm:text-center sm:items-center mb-4">
+            <h1 className="w-full font-serif text-start sm:text-center font-bold text-3xl lg:text-[2.35rem] leading-10 tracking-wide text-olive-900">
+              Yohanes Eka Putra
+            </h1>
+            <p
+              className="w-full
+              flex flex-col items-start gap-1
+              sm:flex-row sm:flex-wrap sm:text-center sm:items-center sm:justify-center sm:gap-x-4 sm:gap-y-1
+              text-sm sm:text-base
+              font-serif leading-tight tracking-normal text-olive-900
+            "
             >
-              <div className="font-bold font-serif text-sm sm:text-lg">
-                {item.institution}
-              </div>
-              <div className="font-serif text-right text-xs sm:text-base mt-0.5 sm:mt-0">
-                {item.location}
-              </div>
-              <div className="font-serif italic text-xs sm:text-base">
-                {item.degree}
-              </div>
-              <div className="font-serif text-right italic text-xs sm:text-base">
-                {item.duration}
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* Experience Section */}
-        <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
-          <h2 className="font-serif uppercase text-sm sm:text-base tracking-wide">
-            <span className="text-lg sm:text-xl">E</span>xperience
-          </h2>
-          <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
-          {experience.map((item, idx) => (
-            <div key={idx} className="w-full">
-              <div className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center">
+              {personalInfo.map((item) => (
+                <span key={item.type} className="flex items-center gap-1">
+                  {item.link ? (
+                    <a
+                      className="underline underline-offset-4 hover:text-blue-800"
+                      href={item.link}
+                      target="_blank"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <span className="underline underline-offset-4">
+                      {item.value}
+                    </span>
+                  )}
+                </span>
+              ))}
+            </p>
+          </div>
+        </BlurFade>
+        {/* Education Section */}
+        <BlurFade
+          delay={0.25}
+          duration={0.5}
+          direction="up"
+          inView
+          className="w-full"
+        >
+          <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
+            <h2 className="font-serif uppercase text-sm sm:text-base tracking-wide">
+              <span className="text-lg sm:text-xl">E</span>ducation
+            </h2>
+            <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
+            {education.map((item) => (
+              <div
+                key={item.institution}
+                className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center"
+              >
                 <div className="font-bold font-serif text-sm sm:text-lg">
-                  {item.position}
+                  {item.institution}
                 </div>
                 <div className="font-serif text-right text-xs sm:text-base mt-0.5 sm:mt-0">
-                  {item.duration}
-                </div>
-                <div className="font-serif italic text-xs sm:text-base">
-                  {item.company}
-                </div>
-                <div className="font-serif text-right italic text-xs sm:text-base">
                   {item.location}
                 </div>
-              </div>
-              <ul>
-                {item.list?.map((point, pointIdx) => (
-                  <li
-                    key={pointIdx}
-                    className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-xs sm:text-base"
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        {/* Projects Section */}
-        <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
-          <h2 className="font-serif uppercase text-sm sm:text-base tracking-wide">
-            <span className="text-lg sm:text-xl">P</span>rojects
-          </h2>
-          <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
-          {projects.map((item, idx) => (
-            <div key={idx} className="w-full">
-              <div className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start xl:items-center">
-                <div className="font-bold font-serif text-sm sm:text-base">
-                  <span>{item.name}</span>
-                  <span className="hidden xl:inline"> | </span>
-                  <span className="mt-0.5 block border-l border-olive-900 pl-2 italic font-normal xl:mt-0 xl:inline xl:border-0 xl:pl-0">
-                    {item.technologies}
-                  </span>
+                <div className="font-serif italic text-xs sm:text-base">
+                  {item.degree}
                 </div>
-                <div className="font-serif text-right text-xs sm:text-base mt-0.5 xl:mt-0">
+                <div className="font-serif text-right italic text-xs sm:text-base">
                   {item.duration}
                 </div>
               </div>
-              <ul>
-                {item.list?.map((point, pointIdx) => (
-                  <li
-                    key={pointIdx}
-                    className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-xs sm:text-base"
-                  >
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </BlurFade>
+        {/* Experience Section */}
+        <BlurFade
+          delay={0.35}
+          duration={0.5}
+          direction="up"
+          inView
+          className="w-full"
+        >
+          <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
+            <h2 className="font-serif uppercase text-sm sm:text-base tracking-wide">
+              <span className="text-lg sm:text-xl">E</span>xperience
+            </h2>
+            <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
+            {experience.map((item, idx) => (
+              <div key={idx} className="w-full">
+                <div className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center">
+                  <div className="font-bold font-serif text-sm sm:text-lg">
+                    {item.position}
+                  </div>
+                  <div className="font-serif text-right text-xs sm:text-base mt-0.5 sm:mt-0">
+                    {item.duration}
+                  </div>
+                  <div className="font-serif italic text-xs sm:text-base">
+                    {item.company}
+                  </div>
+                  <div className="font-serif text-right italic text-xs sm:text-base">
+                    {item.location}
+                  </div>
+                </div>
+                <ul>
+                  {item.list?.map((point, pointIdx) => (
+                    <li
+                      key={pointIdx}
+                      className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-xs sm:text-base"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </BlurFade>
+        {/* Projects Section */}
+        <BlurFade
+          delay={0.45}
+          duration={0.5}
+          direction="up"
+          inView
+          className="w-full"
+        >
+          <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
+            <h2 className="font-serif uppercase text-sm sm:text-base tracking-wide">
+              <span className="text-lg sm:text-xl">P</span>rojects
+            </h2>
+            <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
+            {projects.map((item, idx) => (
+              <div key={idx} className="w-full">
+                <div className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start xl:items-center">
+                  <div className="font-bold font-serif text-sm sm:text-base">
+                    <span>{item.name}</span>
+                    <span className="hidden xl:inline"> | </span>
+                    <span className="mt-0.5 block border-l border-olive-900 pl-2 italic font-normal xl:mt-0 xl:inline xl:border-0 xl:pl-0">
+                      {item.technologies}
+                    </span>
+                  </div>
+                  <div className="font-serif text-right text-xs sm:text-base mt-0.5 xl:mt-0">
+                    {item.duration}
+                  </div>
+                </div>
+                <ul>
+                  {item.list?.map((point, pointIdx) => (
+                    <li
+                      key={pointIdx}
+                      className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-xs sm:text-base"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </BlurFade>
         {/* Technical Skills */}
-        <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
-          <h2 className="font-serif uppercase text:sm sm:text-base tracking-wide">
-            <span className="text-lg sm:text-xl">T</span>echnical Skills
-          </h2>
-          <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
-          {technicalSkills.map((item, idx) => (
-            <div key={item.type} className="w-full text-xs sm:text-base">
-              {idx === 0 ? (
-                <div className="flex flex-col w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start">
-                  <div className="font-serif">
-                    <span className="font-bold">{item.name}</span>: {item.value}
+        <BlurFade
+          delay={0.55}
+          duration={0.45}
+          direction="up"
+          inView
+          className="w-full"
+        >
+          <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
+            <h2 className="font-serif uppercase text:sm sm:text-base tracking-wide">
+              <span className="text-lg sm:text-xl">T</span>echnical Skills
+            </h2>
+            <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
+            {technicalSkills.map((item, idx) => (
+              <div key={item.type} className="w-full text-xs sm:text-base">
+                {idx === 0 ? (
+                  <div className="flex flex-col w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start">
+                    <div className="font-serif">
+                      <span className="font-bold">{item.name}</span>:{" "}
+                      {item.value}
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <div className="flex flex-col w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 sm:-mt-5 items-start">
-                  <div className="font-serif">
-                    <span className="font-bold">{item.name}</span>: {item.value}
+                ) : (
+                  <div className="flex flex-col w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 sm:-mt-5 items-start">
+                    <div className="font-serif">
+                      <span className="font-bold">{item.name}</span>:{" "}
+                      {item.value}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </BlurFade>
       </main>
     </div>
   );
