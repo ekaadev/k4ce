@@ -1,4 +1,18 @@
+"use client";
+
 import { BlurFade } from "@/components/ui/blur-fade";
+import { User, Notebook } from "lucide-react";
+import { Dock, DockIcon } from "@/components/ui/dock";
+import { motion } from "framer-motion";
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
+import { FlickeringGrid } from "@/components/ui/flickering-grid";
+import Link from "next/link";
+import { toast } from "sonner";
 
 type PersonalInfoType = "phone" | "email" | "linkedin" | "github";
 
@@ -174,9 +188,62 @@ const technicalSkills: TechnicalSkillItem[] = [
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-olive-100 font-sans">
+    <div className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden bg-olive-100 font-sans">
       {/* Main Content */}
-      <main className="flex min-h-screen w-full max-w-4xl flex-col items-center justify-start py-8 px-8 lg:py-16 lg:px-16 lg:items-start">
+      <div className="relative h-24 w-full overflow-hidden">
+        <FlickeringGrid
+          className="relative inset-0 z-0 mask-[linear-gradient(to_bottom,white,transparent)]"
+          squareSize={4}
+          gridGap={2}
+          color="#6B7280"
+          maxOpacity={0.2}
+          flickerChance={0.1}
+        />
+      </div>
+      <main className="flex min-h-screen w-full max-w-4xl flex-col items-center justify-start pb-24 pt-0 px-8 lg:pb-16 lg:pt-0 lg:px-16 lg:items-start">
+        <motion.div
+          whileHover={{ scale: 1.05, y: -4 }}
+          transition={{ type: "spring", stiffness: 200, damping: 18 }}
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30"
+        >
+          <TooltipProvider>
+            <Dock className="bg-olive-100/40 backdrop-blur-xl border-2 border-olive-300/40 shadow-2xl rounded-full px-5 py-2 flex gap-4 text-olive-900">
+              <DockIcon>
+                <Tooltip>
+                  <TooltipTrigger className="cursor-pointer" asChild>
+                    <Link
+                      href="/"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.reload();
+                      }}
+                    >
+                      <User className="size-5" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-sans">
+                    View Profile
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+
+              <DockIcon>
+                <Tooltip>
+                  <TooltipTrigger className="cursor-pointer" asChild>
+                    <Link href="/" onClick={() => {
+                      toast.warning("Feature is under development, stay tuned :)");
+                    }}>
+                      <Notebook className="size-5" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-sans">
+                    Blog
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            </Dock>
+          </TooltipProvider>
+        </motion.div>
         {/* Header */}
         <BlurFade
           delay={0.15}
@@ -337,7 +404,7 @@ export default function Home() {
         </BlurFade>
         {/* Technical Skills */}
         <BlurFade
-          delay={0.55}
+          delay={0.35}
           duration={0.45}
           direction="up"
           inView
