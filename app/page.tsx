@@ -216,7 +216,6 @@ export default function Home() {
                       onClick={(e) => {
                         e.preventDefault();
                         history.scrollRestoration = "manual";
-                        scroll({ top: 0, behavior: "smooth" });
                         window.location.reload();
                       }}
                     >
