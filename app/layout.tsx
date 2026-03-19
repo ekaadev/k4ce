@@ -1,10 +1,32 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const computerModern = localFont({
+  src: [
+    {
+      path: "../public/fonts/cmu_serif_roman.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/cmu_serif_bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/cmu_serif_oblique.woff",
+      weight: "400",
+      style: "italic",
+    }
+  ],
+  variable: "--font-computer-modern-serif-roman",
 });
 
 const geistMono = Geist_Mono({
@@ -25,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${computerModern.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
