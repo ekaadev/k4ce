@@ -174,19 +174,22 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-olive-100 font-sans">
       {/* Main Content */}
-      <main className="flex min-h-screen w-full max-w-4xl flex-col items-center justify-start py-16 px-16 sm:items-start">
+      <main className="flex min-h-screen w-full max-w-4xl flex-col items-center justify-start py-8 px-8 lg:py-16 lg:px-16 lg:items-start">
         {/* Header */}
-        <div className="flex flex-col items-center text-center sm:items-start sm:text-left w-full mb-2">
-          <h1 className="w-full font-serif text-center font-bold text-[2.35rem] leading-10 tracking-wide text-olive-900">
+        <div className="flex flex-col lg:items-start lg:text-left w-full mb-4">
+          <h1 className="w-full font-serif text-start sm:text-center font-bold text-3xl lg:text-[2.35rem] leading-10 tracking-wide text-olive-900">
             Yohanes Eka Putra
           </h1>
-          <p className="flex flex-row gap-1 justify-center w-full font-serif leading-10 tracking-normal text-olive-900 -mt-3">
-            {/* Personal Info */}
-            {personalInfo.map((item, index) => (
-              <span
-                key={item.type}
-                className="flex flex-row gap-1 items-center"
-              >
+          <p
+            className="w-full
+            flex flex-col items-start gap-1
+            sm:flex-row sm:flex-wrap sm:text-center sm:items-center sm:justify-center sm:gap-x-4 sm:gap-y-1
+            text-sm sm:text-base
+            font-serif leading-tight tracking-normal text-olive-900
+          "
+          >
+            {personalInfo.map((item) => (
+              <span key={item.type} className="flex items-center gap-1">
                 {item.link ? (
                   <a
                     className="underline underline-offset-4 hover:text-blue-800"
@@ -200,28 +203,31 @@ export default function Home() {
                     {item.value}
                   </span>
                 )}
-                {index < personalInfo.length - 1 && <span>|</span>}
               </span>
             ))}
           </p>
         </div>
         {/* Education Section */}
         <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
-          <h2 className="font-serif uppercase text-base tracking-wide">
-            <span className="text-xl">E</span>ducation
+          <h2 className="font-serif uppercase text-sm sm:text-base tracking-wide">
+            <span className="text-lg sm:text-xl">E</span>ducation
           </h2>
           <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
           {education.map((item) => (
             <div
               key={item.institution}
-              className="grid grid-cols-2 w-full pr-2 pl-4 -mt-3.5 items-center"
+              className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center"
             >
-              <div className="font-bold font-serif text-lg">
+              <div className="font-bold font-serif text-sm sm:text-lg">
                 {item.institution}
               </div>
-              <div className="font-serif text-right">{item.location}</div>
-              <div className="font-serif italic">{item.degree}</div>
-              <div className="font-serif text-right italic">
+              <div className="font-serif text-right text-xs sm:text-base mt-0.5 sm:mt-0">
+                {item.location}
+              </div>
+              <div className="font-serif italic text-xs sm:text-base">
+                {item.degree}
+              </div>
+              <div className="font-serif text-right italic text-xs sm:text-base">
                 {item.duration}
               </div>
             </div>
@@ -229,19 +235,23 @@ export default function Home() {
         </div>
         {/* Experience Section */}
         <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
-          <h2 className="font-serif uppercase text-base tracking-wide">
-            <span className="text-xl">E</span>xperience
+          <h2 className="font-serif uppercase text-sm sm:text-base tracking-wide">
+            <span className="text-lg sm:text-xl">E</span>xperience
           </h2>
           <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
           {experience.map((item, idx) => (
             <div key={idx} className="w-full">
-              <div className="grid grid-cols-2 w-full pr-2 pl-4 -mt-3.5 items-center">
-                <div className="font-bold font-serif text-lg">
+              <div className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center">
+                <div className="font-bold font-serif text-sm sm:text-lg">
                   {item.position}
                 </div>
-                <div className="font-serif text-right">{item.duration}</div>
-                <div className="font-serif italic">{item.company}</div>
-                <div className="font-serif text-right italic">
+                <div className="font-serif text-right text-xs sm:text-base mt-0.5 sm:mt-0">
+                  {item.duration}
+                </div>
+                <div className="font-serif italic text-xs sm:text-base">
+                  {item.company}
+                </div>
+                <div className="font-serif text-right italic text-xs sm:text-base">
                   {item.location}
                 </div>
               </div>
@@ -249,7 +259,7 @@ export default function Home() {
                 {item.list?.map((point, pointIdx) => (
                   <li
                     key={pointIdx}
-                    className="font-serif list-disc list-inside ml-10 mr-1"
+                    className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-xs sm:text-base"
                   >
                     {point}
                   </li>
@@ -260,26 +270,29 @@ export default function Home() {
         </div>
         {/* Projects Section */}
         <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
-          <h2 className="font-serif uppercase text-base tracking-wide">
-            <span className="text-xl">P</span>rojects
+          <h2 className="font-serif uppercase text-sm sm:text-base tracking-wide">
+            <span className="text-lg sm:text-xl">P</span>rojects
           </h2>
           <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
           {projects.map((item, idx) => (
             <div key={idx} className="w-full">
-              <div className="grid grid-cols-[1fr_auto] w-full pr-2 pl-4 -mt-3.5 items-center">
-                <div className="font-bold font-serif text-base">
-                  {item.name} |{" "}
-                  <span className="italic font-normal">
+              <div className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start xl:items-center">
+                <div className="font-bold font-serif text-sm sm:text-base">
+                  <span>{item.name}</span>
+                  <span className="hidden xl:inline"> | </span>
+                  <span className="mt-0.5 block border-l border-olive-900 pl-2 italic font-normal xl:mt-0 xl:inline xl:border-0 xl:pl-0">
                     {item.technologies}
                   </span>
                 </div>
-                <div className="font-serif text-right">{item.duration}</div>
+                <div className="font-serif text-right text-xs sm:text-base mt-0.5 xl:mt-0">
+                  {item.duration}
+                </div>
               </div>
               <ul>
                 {item.list?.map((point, pointIdx) => (
                   <li
                     key={pointIdx}
-                    className="font-serif list-disc list-inside ml-10 mr-1"
+                    className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-xs sm:text-base"
                   >
                     {point}
                   </li>
@@ -290,20 +303,20 @@ export default function Home() {
         </div>
         {/* Technical Skills */}
         <div className="w-full flex flex-col gap-4 text-base font-medium items-start mb-4 text-olive-900">
-          <h2 className="font-serif uppercase text-base tracking-wide">
-            <span className="text-xl">T</span>echnical Skills
+          <h2 className="font-serif uppercase text:sm sm:text-base tracking-wide">
+            <span className="text-lg sm:text-xl">T</span>echnical Skills
           </h2>
           <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
           {technicalSkills.map((item, idx) => (
-            <div key={item.type} className="w-full">
+            <div key={item.type} className="w-full text-xs sm:text-base">
               {idx === 0 ? (
-                <div className="flex flex-col w-full pr-2 pl-4 -mt-3.5 items-start">
+                <div className="flex flex-col w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start">
                   <div className="font-serif">
                     <span className="font-bold">{item.name}</span>: {item.value}
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-col w-full pr-2 pl-4 -mt-5 items-start">
+                <div className="flex flex-col w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 sm:-mt-5 items-start">
                   <div className="font-serif">
                     <span className="font-bold">{item.name}</span>: {item.value}
                   </div>
