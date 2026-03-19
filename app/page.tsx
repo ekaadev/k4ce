@@ -215,6 +215,8 @@ export default function Home() {
                       href="/"
                       onClick={(e) => {
                         e.preventDefault();
+                        history.scrollRestoration = "manual";
+                        scroll({ top: 0, behavior: "smooth" });
                         window.location.reload();
                       }}
                     >
@@ -230,9 +232,14 @@ export default function Home() {
               <DockIcon>
                 <Tooltip>
                   <TooltipTrigger className="cursor-pointer" asChild>
-                    <Link href="/" onClick={() => {
-                      toast.warning("Feature is under development, stay tuned :)");
-                    }}>
+                    <Link
+                      href="/"
+                      onClick={() => {
+                        toast.warning(
+                          "Feature is under development, stay tuned :)",
+                        );
+                      }}
+                    >
                       <Notebook className="size-5" />
                     </Link>
                   </TooltipTrigger>
