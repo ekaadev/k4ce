@@ -222,7 +222,7 @@ export default function Home() {
                       <User className="size-5" />
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-sans">
+                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-[family-name:var(--font-geist-sans)]">
                     View Profile
                   </TooltipContent>
                 </Tooltip>
@@ -242,7 +242,7 @@ export default function Home() {
                       <Notebook className="size-5" />
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-sans">
+                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-[family-name:var(--font-geist-sans)]">
                     Blog
                   </TooltipContent>
                 </Tooltip>
@@ -306,18 +306,18 @@ export default function Home() {
             {education.map((item) => (
               <div
                 key={item.institution}
-                className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center"
+                className="flex flex-col sm:grid sm:grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center"
               >
-                <div className="font-bold font-serif text-sm sm:text-lg">
+                <div className="font-bold font-serif text-base sm:text-lg">
                   {item.institution}
                 </div>
-                <div className="font-serif text-right text-xs sm:text-base mt-0.5 sm:mt-0">
+                <div className="font-serif sm:text-right text-sm sm:text-base mt-0.5 sm:mt-0">
                   {item.location}
                 </div>
-                <div className="font-serif italic text-xs sm:text-base">
+                <div className="font-serif italic text-sm sm:text-base">
                   {item.degree}
                 </div>
-                <div className="font-serif text-right italic text-xs sm:text-base">
+                <div className="font-serif sm:text-right italic text-sm sm:text-base">
                   {item.duration}
                 </div>
               </div>
@@ -339,17 +339,17 @@ export default function Home() {
             <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
             {experience.map((item, idx) => (
               <div key={idx} className="w-full">
-                <div className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center">
-                  <div className="font-bold font-serif text-sm sm:text-lg">
+                <div className="flex flex-col sm:grid sm:grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start sm:items-center">
+                  <div className="font-bold font-serif text-base sm:text-lg">
                     {item.position}
                   </div>
-                  <div className="font-serif text-right text-xs sm:text-base mt-0.5 sm:mt-0">
+                  <div className="font-serif sm:text-right text-sm sm:text-base mt-0.5 sm:mt-0">
                     {item.duration}
                   </div>
-                  <div className="font-serif italic text-xs sm:text-base">
+                  <div className="font-serif italic text-sm sm:text-base">
                     {item.company}
                   </div>
-                  <div className="font-serif text-right italic text-xs sm:text-base">
+                  <div className="font-serif sm:text-right italic text-sm sm:text-base">
                     {item.location}
                   </div>
                 </div>
@@ -357,7 +357,7 @@ export default function Home() {
                   {item.list?.map((point, pointIdx) => (
                     <li
                       key={pointIdx}
-                      className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-xs sm:text-base"
+                      className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-sm sm:text-base"
                     >
                       {point}
                     </li>
@@ -382,15 +382,15 @@ export default function Home() {
             <hr className="w-full border border-t border-olive-900 opacity-50 -mt-4" />
             {projects.map((item, idx) => (
               <div key={idx} className="w-full">
-                <div className="grid grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start xl:items-center">
-                  <div className="font-bold font-serif text-sm sm:text-base">
+                <div className="flex flex-col sm:grid sm:grid-cols-[1fr_auto] w-full pr-1 pl-2 sm:pr-2 sm:pl-4 -mt-3.5 items-start xl:items-center">
+                  <div className="font-bold font-serif text-base sm:text-base">
                     <span>{item.name}</span>
                     <span className="hidden xl:inline"> | </span>
                     <span className="mt-0.5 block border-l border-olive-900 pl-2 italic font-normal xl:mt-0 xl:inline xl:border-0 xl:pl-0">
                       {item.technologies}
                     </span>
                   </div>
-                  <div className="font-serif text-right text-xs sm:text-base mt-0.5 xl:mt-0">
+                  <div className="font-serif sm:text-right text-sm sm:text-base mt-0.5 xl:mt-0">
                     {item.duration}
                   </div>
                 </div>
@@ -398,7 +398,7 @@ export default function Home() {
                   {item.list?.map((point, pointIdx) => (
                     <li
                       key={pointIdx}
-                      className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-xs sm:text-base"
+                      className="font-serif list-disc list-inside ml-6 sm:ml-10 mr-1 text-sm sm:text-base"
                     >
                       {point}
                     </li>
