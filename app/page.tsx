@@ -1,7 +1,7 @@
 "use client";
 
 import { BlurFade } from "@/components/ui/blur-fade";
-import { User, Notebook } from "lucide-react";
+import { User, Notebook, Download } from "lucide-react";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { motion } from "framer-motion";
 import {
@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
+import { Separator } from "@/components/ui/separator";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import Link from "next/link";
 import { toast } from "sonner";
@@ -207,7 +208,7 @@ export default function Home() {
           className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30"
         >
           <TooltipProvider>
-            <Dock className="bg-olive-100/40 backdrop-blur-xl border-2 border-olive-300/40 shadow-2xl rounded-full px-5 py-2 flex gap-4 text-olive-900">
+            <Dock className="bg-olive-100/40 backdrop-blur-xl border-2 border-olive-300/40 shadow-2xl rounded-[38px] px-5 py-2 flex gap-2 text-olive-900">
               <DockIcon>
                 <Tooltip>
                   <TooltipTrigger className="cursor-pointer" asChild>
@@ -222,7 +223,7 @@ export default function Home() {
                       <User className="size-5" />
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-[family-name:var(--font-geist-sans)]">
+                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-(family-name:--font-geist-sans)">
                     View Profile
                   </TooltipContent>
                 </Tooltip>
@@ -242,8 +243,27 @@ export default function Home() {
                       <Notebook className="size-5" />
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-[family-name:var(--font-geist-sans)]">
+                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-(family-name:--font-geist-sans)">
                     Blog
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+
+              <Separator orientation="vertical" className="bg-olive-400/40" />
+
+              <DockIcon>
+                <Tooltip>
+                  <TooltipTrigger className="cursor-pointer" asChild>
+                    <a
+                      target="_blank"
+                      href="/resume/resume.pdf"
+                      download="resume-yohanes-eka-putra.pdf"
+                    >
+                      <Download className="size-5" />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-olive-900 text-white rounded-md px-2 py-1 text-base font-(family-name:--font-geist-sans)">
+                    Resume
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>
